@@ -18,6 +18,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 40) {
+                
                 Spacer()
                 
                 // War Logo
@@ -31,28 +32,22 @@ struct ContentView: View {
                 // Kortene
                 HStack(spacing: 30) {
                     Image("card2")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 120, height: 180)
+                        
                     
                     Image("card10")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 120, height: 180)
+                        
                 }
                 
                 Spacer()
                 
                 // Deal knappen
                 Image("button")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 60)
+                    
                 
                 //Spacer()
                 
                 // Scoreboarden
-                HStack(spacing: 50) {
+                HStack(spacing: 100) {
                     VStack {
                         Text("Player")
                             .font(.headline)
@@ -72,6 +67,7 @@ struct ContentView: View {
                 .foregroundColor(.white)
                 
                 Spacer()
+                
             }
             .padding(.horizontal, 30)
         }
