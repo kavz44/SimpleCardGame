@@ -3,6 +3,9 @@
 <p>Deal button deals random cards to player and CPU and updates score. Restart button only shows when started to play</p>
 
 <p float="left">
-  <img width="110" height="230" alt="image" src="https://github.com/user-attachments/assets/e8a78e73-0ae3-4e6d-aa84-f45da69a5c7b" />
-  <img width="106" height="226" alt="image" src="https://github.com/user-attachments/assets/5d6018d3-cac1-44dc-a4ce-8d39ee2f6af7" />
+  <img width="396" height="830" alt="image" src="https://github.com/user-attachments/assets/39e7bfa4-0706-450d-915e-d56f7c425cc8" />
+
+  <img width="400" height="830" alt="image" src="https://github.com/user-attachments/assets/7331d347-dc90-4b3f-834c-2883ebb42d4b" />
+
+
 </p>
