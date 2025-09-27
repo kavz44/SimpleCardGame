@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var playerCard:String = "back"
+    @State var cpuCard:String = "back"
+    
+    @State var playerScore:Int = 0
+    @State var cpuScore:Int = 0
+    
+    @State var winnerMsg:String = ""
+    @State var showRestart:Bool = false
+    
     var body: some View {
         
         ZStack {
@@ -31,17 +41,48 @@ struct ContentView: View {
                 
                 // Kortene
                 HStack(spacing: 30) {
-                    Image("card2")
-                        
-                    
-                    Image("card10")
-                        
+                    Image(playerCard)
+                    Image(cpuCard)
                 }
                 
-                Spacer()
                 
-                // Deal knappen
-                Image("button")
+                Text("\(winnerMsg)")
+                    .foregroundStyle(.white)
+                    .font(.largeTitle)
+                    .bold()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.85)
+                    
+                
+                ZStack {
+                    // Deal knappen
+                    Button{
+                        deal()
+                    }
+                     label: {
+                        Image("button")
+                    }
+                    .frame(alignment: .center)
+                    
+                    if showRestart {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                restartGame()
+                                print("Restart pressed")
+                            }) {
+                                Image(systemName: "arrow.clockwise")
+                            }
+                        }
+                        .padding(.horizontal)
+                        .foregroundStyle(.white)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                    
+                
+                
                     
                 
                 //Spacer()
@@ -51,7 +92,7 @@ struct ContentView: View {
                     VStack {
                         Text("Player")
                             .font(.headline)
-                        Text("0")
+                        Text(String(playerScore))
                             .font(.largeTitle)
                             .bold()
                     }
@@ -59,7 +100,7 @@ struct ContentView: View {
                     VStack {
                         Text("CPU")
                             .font(.headline)
-                        Text("0")
+                        Text(String(cpuScore))
                             .font(.largeTitle)
                             .bold()
                     }
@@ -76,7 +117,54 @@ struct ContentView: View {
         
         
     }
+    
+    // deal funksjonalitet
+    func deal() {
+        
+        // / tilfeldig kort til spilleren og cpu (egt er begge cpu )
+        let randomPlayerValue: Int = Int.random(in:2...14)
+        let randomCpuValue: Int = Int.random(in:2...14)
+    
+        playerCard = "card" + String(randomPlayerValue)
+        cpuCard = "card" + String(randomCpuValue)
+        
+        // Gjør restartknappen synlig hvis ikke synlig
+        showRestart = true
+        
+        // Oppdater scoren
+        if (randomPlayerValue > randomCpuValue) {
+            playerScore += 1
+            winnerMsg = "Player won!"
+        }
+        else if (randomCpuValue > randomPlayerValue) {
+            cpuScore += 1
+            winnerMsg = "CPU won!"
+        }
+        else {
+            playerScore += 1
+            cpuScore += 1
+            winnerMsg = "Draw! Both gets points:)"
+        }
+        
+        
+    }
+    
+    // Restart spillet funksjonalitet
+    func restartGame() {
+        // Setter bare verdiene til startverdien
+        playerCard = "back"
+        cpuCard = "back"
+        
+        playerScore = 0
+        cpuScore = 0
+        
+        winnerMsg = ""
+        showRestart = false
+        
+    }
 }
+
+
 #Preview {
     ContentView()
 }
