@@ -1,6 +1,6 @@
 
 <h2>Simple card game</h2>
-<p>Deal button deals random cards to player and CPU and updates score. Restart button only shows when started to play</p>
+<p>The Deal button deals random cards to the player and CPU, and updates the score. The Restart button only appears once the game has started.</p>
 
 <p float="left">
   <img width="150" alt="image" src="https://github.com/user-attachments/assets/39e7bfa4-0706-450d-915e-d56f7c425cc8" />
