@@ -46,12 +46,7 @@ struct ContentView: View {
                 }
                 
                 
-                Text("\(winnerMsg)")
-                    .foregroundStyle(.white)
-                    .font(.largeTitle)
-                    .bold()
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.85)
+                Spacer()
                     
                 
                 ZStack {
@@ -111,7 +106,18 @@ struct ContentView: View {
                 
             }
             .padding(.horizontal, 30)
+            
+            // Plasseres i ZSTack med fast posisjon for å ikke endre plassering på resten av elementene på skjermen
+            Text(winnerMsg)
+                .foregroundColor(.white)
+                .font(.largeTitle)
+                .bold()
+                .multilineTextAlignment(.center)
+                .position(x: UIScreen.main.bounds.width / 2,
+                          y: 575)
+                
         }
+        
 
         
         
